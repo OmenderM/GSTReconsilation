@@ -5,7 +5,7 @@ table 50002 CustomerTable
     {
 
 
-        field(1; "C"; code[40])
+        field(1; "dsfgtyhu"; code[40])
         {
             DataClassification = ToBeClassified;
         }
