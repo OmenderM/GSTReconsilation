@@ -43,7 +43,7 @@ table 50002 CustomerTable
             //TableRelation = "Student Details" where(StudentName = field("Student Name"));
 
         }
-        field(6; RollNo; code[10])
+        field(6; RollNoooo; code[10])
         {
             DataClassification = ToBeClassified;
             //TableRelation = "Student Details"; //where(StudentName = field("Student Name"));
