@@ -5,7 +5,7 @@ table 50002 CustomerTable
     {
 
 
-        field(1; "dsfgtyhu"; code[40])
+        field(1; "Customer Id"; code[40])
         {
             DataClassification = ToBeClassified;
         }
@@ -23,30 +23,30 @@ table 50002 CustomerTable
         field(4; "Student Name"; Text[50])
         {
             DataClassification = ToBeClassified;
-            // TableRelation = "Student Details";
-            // trigger OnValidate()
-            // var
-            //     recStudent: Record "Student Details";
-            // begin
-            //     recStudent.Reset();
-            //     recStudent.SetRange(StudentName, rec."Student Name");
-            //     recStudent.FindFirst();
-            //     rec.Class := recStudent.Class;
-            //     //rec.RollNo := recStudent.RollNo;
-            //     rec.Modify();
-            // end;
+            TableRelation = "Student Details";
+            trigger OnValidate()
+            var
+                recStudent: Record "Student Details";
+            begin
+                recStudent.Reset();
+                recStudent.SetRange(StudentName, rec."Student Name");
+                recStudent.FindFirst();
+                rec.Class := recStudent.Class;
+                //rec.RollNo := recStudent.RollNo;
+                rec.Modify();
+            end;
 
         }
         field(5; Class; Text[20])
         {
             DataClassification = ToBeClassified;
-            //TableRelation = "Student Details" where(StudentName = field("Student Name"));
+            TableRelation = "Student Details" where(StudentName = field("Student Name"));
 
         }
-        field(6; Rollo; code[10])
+        field(6; RollNo; code[10])
         {
             DataClassification = ToBeClassified;
-            //TableRelation = "Student Details"; //where(StudentName = field("Student Name"));
+            TableRelation = "Student Details"; //where(StudentName = field("Student Name"));
 
         }
 
